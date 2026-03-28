@@ -1,0 +1,595 @@
+{
+  "generatedAt": "2026-03-28T22:32:05.887Z",
+  "periodStart": "2025-12-28",
+  "periodEnd": "2026-03-28",
+  "totalPRsAnalyzed": 7956,
+  "totalEngineersAnalyzed": 28,
+  "topEngineers": [
+    {
+      "login": "pauldambra",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/984817?u=26510bc5f7090bfd110784beb7fbe5893d9f92b4&v=4",
+      "name": "Paul D'Ambra",
+      "rank": 1,
+      "compositeScore": 68,
+      "dimensions": {
+        "shippingLeverage": {
+          "score": 66,
+          "metrics": {
+            "mergedPRs": 218,
+            "totalPRs": 275,
+            "mergeRate": "79%",
+            "medianTimeToMergeHours": 10.1,
+            "avgZonesPerPR": 2
+          },
+          "explanation": "Merged 218 of 275 PRs (79% merge rate). Median time to merge: 10h. PRs averaged 2.0 codebase zones each."
+        },
+        "teamMultiplier": {
+          "score": 62,
+          "metrics": {
+            "reviewsGiven": 79,
+            "substantiveReviewRate": "65%",
+            "distinctAuthorsReviewed": 13,
+            "medianReviewTurnaroundHours": 0.3,
+            "changesRequestedRate": "0%",
+            "pageRankCentrality": 0.1048
+          },
+          "explanation": "Gave 79 reviews across 13 different authors. 65% included substantive comments. Median review turnaround: 0h."
+        },
+        "qualitySignal": {
+          "score": 79,
+          "metrics": {
+            "firstPassMergeRate": "99%",
+            "revertRate": "1%",
+            "testInclusionRate": "28%",
+            "avgReviewRounds": 0,
+            "avgPRDescriptionLength": 619
+          },
+          "explanation": "99% of PRs merged without changes requested. 28% included tests. 2 revert(s)."
+        },
+        "scopeReach": {
+          "score": 61,
+          "metrics": {
+            "codebaseZonesTouched": 12,
+            "zones": "Frontend Lib, Frontend UI, Tests, Other, Enterprise, Backend API, HogQL/Analytics, Infrastructure, Product Modules, Backend Models, Rust Core, Data Pipeline",
+            "criticalPathRatio": "3%",
+            "crossStack": true
+          },
+          "explanation": "Touched 12 codebase zones: Frontend Lib, Frontend UI, Tests, Other, Enterprise.... Full-stack contributor (frontend + backend). 3% of files in critical infrastructure paths."
+        },
+        "consistency": {
+          "score": 77,
+          "metrics": {
+            "activeWeeks": 13,
+            "totalWeeks": 13,
+            "longestStreak": 12,
+            "contributionEntropy": 0.97,
+            "recentActivityRatio": "84%"
+          },
+          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 97% (higher = more consistent)."
+        }
+      },
+      "notablePRs": [
+        {
+          "number": 48043,
+          "title": "feat: add box plot chart visualization for trends insights",
+          "url": "https://github.com/PostHog/posthog/pull/48043",
+          "mergedAt": "2026-03-05T20:40:16Z",
+          "additions": 2627,
+          "deletions": 190,
+          "filesChanged": 44,
+          "zones": [
+            "Other",
+            "Frontend Lib",
+            "Frontend UI",
+            "Tests",
+            "Backend API",
+            "HogQL/Analytics",
+            "Product Modules"
+          ]
+        },
+        {
+          "number": 50198,
+          "title": "feat: add multi-series support for box plot charts",
+          "url": "https://github.com/PostHog/posthog/pull/50198",
+          "mergedAt": "2026-03-09T12:24:11Z",
+          "additions": 583,
+          "deletions": 207,
+          "filesChanged": 24,
+          "zones": [
+            "Other",
+            "Frontend Lib",
+            "Tests",
+            "Frontend UI",
+            "HogQL/Analytics",
+            "Product Modules"
+          ]
+        },
+        {
+          "number": 50278,
+          "title": "feat: don't make someone click to summarise when there is a summary",
+          "url": "https://github.com/PostHog/posthog/pull/50278",
+          "mergedAt": "2026-03-20T08:52:17Z",
+          "additions": 1455,
+          "deletions": 1071,
+          "filesChanged": 10,
+          "zones": [
+            "Frontend Lib",
+            "Frontend UI",
+            "Other",
+            "Tests",
+            "Product Modules"
+          ]
+        }
+      ]
+    },
+    {
+      "login": "andrewm4894",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/2178292?u=8461034c2873afbebfe143bfb48bdc409bdc2980&v=4",
+      "name": "Andrew Maguire",
+      "rank": 2,
+      "compositeScore": 65,
+      "dimensions": {
+        "shippingLeverage": {
+          "score": 70,
+          "metrics": {
+            "mergedPRs": 227,
+            "totalPRs": 303,
+            "mergeRate": "75%",
+            "medianTimeToMergeHours": 3.4,
+            "avgZonesPerPR": 2
+          },
+          "explanation": "Merged 227 of 303 PRs (75% merge rate). Median time to merge: 3h. PRs averaged 2.0 codebase zones each."
+        },
+        "teamMultiplier": {
+          "score": 43,
+          "metrics": {
+            "reviewsGiven": 84,
+            "substantiveReviewRate": "24%",
+            "distinctAuthorsReviewed": 12,
+            "medianReviewTurnaroundHours": 1.4,
+            "changesRequestedRate": "0%",
+            "pageRankCentrality": 0.0806
+          },
+          "explanation": "Gave 84 reviews across 12 different authors. 24% included substantive comments. Median review turnaround: 1h."
+        },
+        "qualitySignal": {
+          "score": 88,
+          "metrics": {
+            "firstPassMergeRate": "100%",
+            "revertRate": "0%",
+            "testInclusionRate": "37%",
+            "avgReviewRounds": 0,
+            "avgPRDescriptionLength": 1217
+          },
+          "explanation": "100% of PRs merged without changes requested. 37% included tests. Zero reverts."
+        },
+        "scopeReach": {
+          "score": 57,
+          "metrics": {
+            "codebaseZonesTouched": 11,
+            "zones": "Frontend Lib, Other, Frontend UI, Backend API, Tests, Product Modules, Infrastructure, Backend Models, Enterprise, HogQL/Analytics, ClickHouse",
+            "criticalPathRatio": "4%",
+            "crossStack": true
+          },
+          "explanation": "Touched 11 codebase zones: Frontend Lib, Other, Frontend UI, Backend API, Tests.... Full-stack contributor (frontend + backend). 4% of files in critical infrastructure paths."
+        },
+        "consistency": {
+          "score": 72,
+          "metrics": {
+            "activeWeeks": 13,
+            "totalWeeks": 13,
+            "longestStreak": 12,
+            "contributionEntropy": 0.94,
+            "recentActivityRatio": "89%"
+          },
+          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 94% (higher = more consistent)."
+        }
+      },
+      "notablePRs": [
+        {
+          "number": 51671,
+          "title": "feat(alerts): add simulate detector endpoint with mini chart preview",
+          "url": "https://github.com/PostHog/posthog/pull/51671",
+          "mergedAt": "2026-03-20T22:23:45Z",
+          "additions": 1258,
+          "deletions": 78,
+          "filesChanged": 23,
+          "zones": [
+            "Frontend Lib",
+            "Frontend UI",
+            "Backend API",
+            "Tests",
+            "Other",
+            "Product Modules"
+          ]
+        },
+        {
+          "number": 50073,
+          "title": "feat(alerts): 1/4 add anomaly detection scaffolding with threshold and zscore detectors",
+          "url": "https://github.com/PostHog/posthog/pull/50073",
+          "mergedAt": "2026-03-18T20:46:51Z",
+          "additions": 4045,
+          "deletions": 141,
+          "filesChanged": 41,
+          "zones": [
+            "Other",
+            "Frontend Lib",
+            "Backend API",
+            "Tests",
+            "Backend Models",
+            "Product Modules"
+          ]
+        },
+        {
+          "number": 51800,
+          "title": "feat(llma): add prompt duplicate endpoint and MCP tool",
+          "url": "https://github.com/PostHog/posthog/pull/51800",
+          "mergedAt": "2026-03-20T18:25:27Z",
+          "additions": 611,
+          "deletions": 16,
+          "filesChanged": 18,
+          "zones": [
+            "Frontend Lib",
+            "Backend API",
+            "Tests",
+            "Product Modules",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "login": "rafaeelaudibert",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/32079912?u=c3771922a6d7204c1d037e4c44e37325c42c6cb9&v=4",
+      "name": "Rafael Audibert",
+      "rank": 3,
+      "compositeScore": 64,
+      "dimensions": {
+        "shippingLeverage": {
+          "score": 55,
+          "metrics": {
+            "mergedPRs": 139,
+            "totalPRs": 155,
+            "mergeRate": "90%",
+            "medianTimeToMergeHours": 22.9,
+            "avgZonesPerPR": 2.5
+          },
+          "explanation": "Merged 139 of 155 PRs (90% merge rate). Median time to merge: 23h. PRs averaged 2.5 codebase zones each."
+        },
+        "teamMultiplier": {
+          "score": 61,
+          "metrics": {
+            "reviewsGiven": 94,
+            "substantiveReviewRate": "62%",
+            "distinctAuthorsReviewed": 16,
+            "medianReviewTurnaroundHours": 1.6,
+            "changesRequestedRate": "2%",
+            "pageRankCentrality": 0.0595
+          },
+          "explanation": "Gave 94 reviews across 16 different authors. 62% included substantive comments. Median review turnaround: 2h."
+        },
+        "qualitySignal": {
+          "score": 80,
+          "metrics": {
+            "firstPassMergeRate": "97%",
+            "revertRate": "0%",
+            "testInclusionRate": "35%",
+            "avgReviewRounds": 0,
+            "avgPRDescriptionLength": 914
+          },
+          "explanation": "97% of PRs merged without changes requested. 35% included tests. Zero reverts."
+        },
+        "scopeReach": {
+          "score": 57,
+          "metrics": {
+            "codebaseZonesTouched": 11,
+            "zones": "Other, Frontend Lib, Frontend UI, Backend API, Tests, Backend Models, Infrastructure, Product Modules, Rust Core, Enterprise, HogQL/Analytics",
+            "criticalPathRatio": "2%",
+            "crossStack": true
+          },
+          "explanation": "Touched 11 codebase zones: Other, Frontend Lib, Frontend UI, Backend API, Tests.... Full-stack contributor (frontend + backend). 2% of files in critical infrastructure paths."
+        },
+        "consistency": {
+          "score": 80,
+          "metrics": {
+            "activeWeeks": 13,
+            "totalWeeks": 13,
+            "longestStreak": 12,
+            "contributionEntropy": 0.99,
+            "recentActivityRatio": "79%"
+          },
+          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 99% (higher = more consistent)."
+        }
+      },
+      "notablePRs": [
+        {
+          "number": 45087,
+          "title": "chore: Attempt migration to Typescript 5.4",
+          "url": "https://github.com/PostHog/posthog/pull/45087",
+          "mergedAt": "2026-01-27T15:06:11Z",
+          "additions": 474,
+          "deletions": 448,
+          "filesChanged": 16,
+          "zones": [
+            "Other",
+            "Frontend Lib",
+            "Tests",
+            "Frontend UI",
+            "Product Modules",
+            "Rust Core"
+          ]
+        },
+        {
+          "number": 47735,
+          "title": "feat: Add DomainConnect for workflows and proxy",
+          "url": "https://github.com/PostHog/posthog/pull/47735",
+          "mergedAt": "2026-02-14T03:05:51Z",
+          "additions": 1622,
+          "deletions": 53,
+          "filesChanged": 27,
+          "zones": [
+            "Infrastructure",
+            "Other",
+            "Frontend Lib",
+            "Frontend UI",
+            "Backend API",
+            "Tests",
+            "Product Modules"
+          ]
+        },
+        {
+          "number": 44085,
+          "title": "feat: Migrate persons/groups `revenue_analytics` table to new MRR views",
+          "url": "https://github.com/PostHog/posthog/pull/44085",
+          "mergedAt": "2025-12-31T22:01:11Z",
+          "additions": 10293,
+          "deletions": 2482,
+          "filesChanged": 40,
+          "zones": [
+            "Other",
+            "Frontend Lib",
+            "Frontend UI",
+            "Backend API",
+            "Tests",
+            "HogQL/Analytics",
+            "Product Modules"
+          ]
+        }
+      ]
+    },
+    {
+      "login": "Gilbert09",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/1459269?u=0edde3eeb61b9d9c80cf8e432bae838fee58f179&v=4",
+      "name": "Tom Owers",
+      "rank": 4,
+      "compositeScore": 60,
+      "dimensions": {
+        "shippingLeverage": {
+          "score": 38,
+          "metrics": {
+            "mergedPRs": 76,
+            "totalPRs": 89,
+            "mergeRate": "85%",
+            "medianTimeToMergeHours": 2.8,
+            "avgZonesPerPR": 1.9
+          },
+          "explanation": "Merged 76 of 89 PRs (85% merge rate). Median time to merge: 3h. PRs averaged 1.9 codebase zones each."
+        },
+        "teamMultiplier": {
+          "score": 73,
+          "metrics": {
+            "reviewsGiven": 83,
+            "substantiveReviewRate": "48%",
+            "distinctAuthorsReviewed": 15,
+            "medianReviewTurnaroundHours": 12.9,
+            "changesRequestedRate": "10%",
+            "pageRankCentrality": 0.045
+          },
+          "explanation": "Gave 83 reviews across 15 different authors. 48% included substantive comments. Median review turnaround: 13h."
+        },
+        "qualitySignal": {
+          "score": 80,
+          "metrics": {
+            "firstPassMergeRate": "99%",
+            "revertRate": "1%",
+            "testInclusionRate": "53%",
+            "avgReviewRounds": 0,
+            "avgPRDescriptionLength": 552
+          },
+          "explanation": "99% of PRs merged without changes requested. 53% included tests. 1 revert(s)."
+        },
+        "scopeReach": {
+          "score": 54,
+          "metrics": {
+            "codebaseZonesTouched": 10,
+            "zones": "Other, Tests, Product Modules, Frontend UI, Backend API, HogQL/Analytics, Frontend Lib, Infrastructure, Backend Models, Enterprise",
+            "criticalPathRatio": "4%",
+            "crossStack": true
+          },
+          "explanation": "Touched 10 codebase zones: Other, Tests, Product Modules, Frontend UI, Backend API.... Full-stack contributor (frontend + backend). 4% of files in critical infrastructure paths."
+        },
+        "consistency": {
+          "score": 64,
+          "metrics": {
+            "activeWeeks": 12,
+            "totalWeeks": 13,
+            "longestStreak": 8,
+            "contributionEntropy": 0.94,
+            "recentActivityRatio": "70%"
+          },
+          "explanation": "Active in 12 of 13 weeks. Longest streak: 8 consecutive weeks. Activity distribution entropy: 94% (higher = more consistent)."
+        }
+      },
+      "notablePRs": [
+        {
+          "number": 52289,
+          "title": "feat(data-warehoise): Use a new webhook sync type",
+          "url": "https://github.com/PostHog/posthog/pull/52289",
+          "mergedAt": "2026-03-26T16:38:33Z",
+          "additions": 289,
+          "deletions": 193,
+          "filesChanged": 25,
+          "zones": [
+            "Frontend UI",
+            "Other",
+            "HogQL/Analytics",
+            "Tests",
+            "Product Modules"
+          ]
+        },
+        {
+          "number": 52168,
+          "title": "feat(data-warehouse): Allow deletion of webhooks",
+          "url": "https://github.com/PostHog/posthog/pull/52168",
+          "mergedAt": "2026-03-25T16:33:44Z",
+          "additions": 581,
+          "deletions": 4,
+          "filesChanged": 11,
+          "zones": [
+            "Frontend Lib",
+            "Frontend UI",
+            "Other",
+            "Product Modules",
+            "Tests"
+          ]
+        },
+        {
+          "number": 52066,
+          "title": "feat(data-warehouse): webhook tab in sources",
+          "url": "https://github.com/PostHog/posthog/pull/52066",
+          "mergedAt": "2026-03-25T10:21:43Z",
+          "additions": 978,
+          "deletions": 146,
+          "filesChanged": 19,
+          "zones": [
+            "Frontend Lib",
+            "Frontend UI",
+            "Other",
+            "Product Modules",
+            "Tests"
+          ]
+        }
+      ]
+    },
+    {
+      "login": "Piccirello",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/8296030?u=1474757971bd6e578161aea04684a625424db237&v=4",
+      "name": "Tom Piccirello",
+      "rank": 5,
+      "compositeScore": 58,
+      "dimensions": {
+        "shippingLeverage": {
+          "score": 47,
+          "metrics": {
+            "mergedPRs": 93,
+            "totalPRs": 103,
+            "mergeRate": "90%",
+            "medianTimeToMergeHours": 3.8,
+            "avgZonesPerPR": 2.6
+          },
+          "explanation": "Merged 93 of 103 PRs (90% merge rate). Median time to merge: 4h. PRs averaged 2.6 codebase zones each."
+        },
+        "teamMultiplier": {
+          "score": 43,
+          "metrics": {
+            "reviewsGiven": 46,
+            "substantiveReviewRate": "52%",
+            "distinctAuthorsReviewed": 10,
+            "medianReviewTurnaroundHours": 1.5,
+            "changesRequestedRate": "0%",
+            "pageRankCentrality": 0.0556
+          },
+          "explanation": "Gave 46 reviews across 10 different authors. 52% included substantive comments. Median review turnaround: 1h."
+        },
+        "qualitySignal": {
+          "score": 86,
+          "metrics": {
+            "firstPassMergeRate": "100%",
+            "revertRate": "0%",
+            "testInclusionRate": "72%",
+            "avgReviewRounds": 0,
+            "avgPRDescriptionLength": 211
+          },
+          "explanation": "100% of PRs merged without changes requested. 72% included tests. Zero reverts."
+        },
+        "scopeReach": {
+          "score": 68,
+          "metrics": {
+            "codebaseZonesTouched": 12,
+            "zones": "Other, Infrastructure, Backend Models, Tests, Backend API, HogQL/Analytics, Product Modules, Enterprise, Frontend Lib, Data Pipeline, ClickHouse, Frontend UI",
+            "criticalPathRatio": "26%",
+            "crossStack": true
+          },
+          "explanation": "Touched 12 codebase zones: Other, Infrastructure, Backend Models, Tests, Backend API.... Full-stack contributor (frontend + backend). 26% of files in critical infrastructure paths."
+        },
+        "consistency": {
+          "score": 56,
+          "metrics": {
+            "activeWeeks": 12,
+            "totalWeeks": 13,
+            "longestStreak": 7,
+            "contributionEntropy": 0.91,
+            "recentActivityRatio": "76%"
+          },
+          "explanation": "Active in 12 of 13 weeks. Longest streak: 7 consecutive weeks. Activity distribution entropy: 91% (higher = more consistent)."
+        }
+      },
+      "notablePRs": [
+        {
+          "number": 47541,
+          "title": "feat(security): Add semgrep rules for preventing IDOR",
+          "url": "https://github.com/PostHog/posthog/pull/47541",
+          "mergedAt": "2026-02-11T21:04:03Z",
+          "additions": 2106,
+          "deletions": 1,
+          "filesChanged": 58,
+          "zones": [
+            "Infrastructure",
+            "Other",
+            "Enterprise",
+            "Backend API",
+            "Data Pipeline",
+            "Product Modules",
+            "Tests"
+          ]
+        },
+        {
+          "number": 45833,
+          "title": "chore(security): Add more semgrep sql injection rules",
+          "url": "https://github.com/PostHog/posthog/pull/45833",
+          "mergedAt": "2026-01-23T23:17:11Z",
+          "additions": 556,
+          "deletions": 1,
+          "filesChanged": 28,
+          "zones": [
+            "Infrastructure",
+            "Other",
+            "Enterprise",
+            "Backend API",
+            "ClickHouse",
+            "HogQL/Analytics",
+            "Backend Models",
+            "Product Modules"
+          ]
+        },
+        {
+          "number": 49309,
+          "title": "feat: replace more 'requests' usage with proxied version",
+          "url": "https://github.com/PostHog/posthog/pull/49309",
+          "mergedAt": "2026-02-27T21:41:49Z",
+          "additions": 456,
+          "deletions": 417,
+          "filesChanged": 100,
+          "zones": [
+            "Enterprise",
+            "Tests",
+            "Other",
+            "Backend API",
+            "Backend Models",
+            "Product Modules"
+          ]
+        }
+      ]
+    }
+  ]
+}
