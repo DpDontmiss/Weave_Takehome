@@ -15,57 +15,62 @@
         "shippingLeverage": {
           "score": 66,
           "metrics": {
-            "mergedPRs": 218,
-            "totalPRs": 275,
-            "mergeRate": "79%",
-            "medianTimeToMergeHours": 10.1,
-            "avgZonesPerPR": 2
+            "PRs Merged": 218,
+            "PRs Opened": 275,
+            "Merge Rate": "79%",
+            "Median Time to Merge": "10.1h",
+            "Avg. Zones per PR": 2
           },
-          "explanation": "Merged 218 of 275 PRs (79% merge rate). Median time to merge: 10h. PRs averaged 2.0 codebase zones each."
+          "explanation": "Merged 218 of 275 PRs (79% merge rate). Median time to merge: 10h. PRs averaged 2.0 codebase zones each.",
+          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
         },
         "teamMultiplier": {
           "score": 62,
           "metrics": {
-            "reviewsGiven": 79,
-            "substantiveReviewRate": "65%",
-            "distinctAuthorsReviewed": 13,
-            "medianReviewTurnaroundHours": 0.3,
-            "changesRequestedRate": "0%",
-            "pageRankCentrality": 0.1048
+            "Reviews Given": 79,
+            "Substantive Review Rate": "65%",
+            "Authors Reviewed": 13,
+            "Median Review Turnaround": "18min",
+            "Changes Requested Rate": "0%",
+            "Review Network Influence": "High (top reviewer hub)"
           },
-          "explanation": "Gave 79 reviews across 13 different authors. 65% included substantive comments. Median review turnaround: 0h."
+          "explanation": "Gave 79 reviews across 13 different authors. 65% included substantive comments. Median review turnaround: 0h.",
+          "headline": "undefined reviews across undefined authors, undefined substantive"
         },
         "qualitySignal": {
           "score": 79,
           "metrics": {
-            "firstPassMergeRate": "99%",
-            "revertRate": "1%",
-            "testInclusionRate": "28%",
-            "avgReviewRounds": 0,
-            "avgPRDescriptionLength": 619
+            "First-Pass Merge Rate": "99%",
+            "Revert Rate": "1%",
+            "Test Inclusion Rate": "28%",
+            "Avg. Review Rounds": 0,
+            "Avg. PR Description Length": "619 chars"
           },
-          "explanation": "99% of PRs merged without changes requested. 28% included tests. 2 revert(s)."
+          "explanation": "99% of PRs merged without changes requested. 28% included tests. 2 revert(s).",
+          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
         },
         "scopeReach": {
           "score": 61,
           "metrics": {
-            "codebaseZonesTouched": 12,
-            "zones": "Frontend Lib, Frontend UI, Tests, Other, Enterprise, Backend API, HogQL/Analytics, Infrastructure, Product Modules, Backend Models, Rust Core, Data Pipeline",
-            "criticalPathRatio": "3%",
-            "crossStack": true
+            "Codebase Zones Touched": 12,
+            "Zones": "Frontend Lib, Frontend UI, Tests, Other, Enterprise, Backend API, HogQL/Analytics, Infrastructure, Product Modules, Backend Models, Rust Core, Data Pipeline",
+            "Critical Path Work": "3%",
+            "Full-Stack Contributor": true
           },
-          "explanation": "Touched 12 codebase zones: Frontend Lib, Frontend UI, Tests, Other, Enterprise.... Full-stack contributor (frontend + backend). 3% of files in critical infrastructure paths."
+          "explanation": "Touched 12 codebase zones: Frontend Lib, Frontend UI, Tests, Other, Enterprise.... Full-stack contributor (frontend + backend). 3% of files in critical infrastructure paths.",
+          "headline": "undefined codebase zones, undefined critical-path work"
         },
         "consistency": {
           "score": 77,
           "metrics": {
-            "activeWeeks": 13,
-            "totalWeeks": 13,
-            "longestStreak": 12,
-            "contributionEntropy": 0.97,
-            "recentActivityRatio": "84%"
+            "Active Weeks": 13,
+            "Period Length (weeks)": 13,
+            "Longest Streak (weeks)": 12,
+            "Distribution Evenness": "97%",
+            "Recent Activity (last 30d)": "84%"
           },
-          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 97% (higher = more consistent)."
+          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 97% (higher = more consistent).",
+          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
         }
       },
       "notablePRs": [
@@ -120,7 +125,9 @@
             "Product Modules"
           ]
         }
-      ]
+      ],
+      "topStrength": "shippingLeverage",
+      "summary": "Paul high-volume shipper with 218 PRs merged (79% rate). also contributed 79 code reviews."
     },
     {
       "login": "andrewm4894",
@@ -132,57 +139,62 @@
         "shippingLeverage": {
           "score": 70,
           "metrics": {
-            "mergedPRs": 227,
-            "totalPRs": 303,
-            "mergeRate": "75%",
-            "medianTimeToMergeHours": 3.4,
-            "avgZonesPerPR": 2
+            "PRs Merged": 227,
+            "PRs Opened": 303,
+            "Merge Rate": "75%",
+            "Median Time to Merge": "3.4h",
+            "Avg. Zones per PR": 2
           },
-          "explanation": "Merged 227 of 303 PRs (75% merge rate). Median time to merge: 3h. PRs averaged 2.0 codebase zones each."
+          "explanation": "Merged 227 of 303 PRs (75% merge rate). Median time to merge: 3h. PRs averaged 2.0 codebase zones each.",
+          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
         },
         "teamMultiplier": {
           "score": 43,
           "metrics": {
-            "reviewsGiven": 84,
-            "substantiveReviewRate": "24%",
-            "distinctAuthorsReviewed": 12,
-            "medianReviewTurnaroundHours": 1.4,
-            "changesRequestedRate": "0%",
-            "pageRankCentrality": 0.0806
+            "Reviews Given": 84,
+            "Substantive Review Rate": "24%",
+            "Authors Reviewed": 12,
+            "Median Review Turnaround": "1.4h",
+            "Changes Requested Rate": "0%",
+            "Review Network Influence": "High (top reviewer hub)"
           },
-          "explanation": "Gave 84 reviews across 12 different authors. 24% included substantive comments. Median review turnaround: 1h."
+          "explanation": "Gave 84 reviews across 12 different authors. 24% included substantive comments. Median review turnaround: 1h.",
+          "headline": "undefined reviews across undefined authors, undefined substantive"
         },
         "qualitySignal": {
           "score": 88,
           "metrics": {
-            "firstPassMergeRate": "100%",
-            "revertRate": "0%",
-            "testInclusionRate": "37%",
-            "avgReviewRounds": 0,
-            "avgPRDescriptionLength": 1217
+            "First-Pass Merge Rate": "100%",
+            "Revert Rate": "0%",
+            "Test Inclusion Rate": "37%",
+            "Avg. Review Rounds": 0,
+            "Avg. PR Description Length": "1217 chars"
           },
-          "explanation": "100% of PRs merged without changes requested. 37% included tests. Zero reverts."
+          "explanation": "100% of PRs merged without changes requested. 37% included tests. Zero reverts.",
+          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
         },
         "scopeReach": {
           "score": 57,
           "metrics": {
-            "codebaseZonesTouched": 11,
-            "zones": "Frontend Lib, Other, Frontend UI, Backend API, Tests, Product Modules, Infrastructure, Backend Models, Enterprise, HogQL/Analytics, ClickHouse",
-            "criticalPathRatio": "4%",
-            "crossStack": true
+            "Codebase Zones Touched": 11,
+            "Zones": "Frontend Lib, Other, Frontend UI, Backend API, Tests, Product Modules, Infrastructure, Backend Models, Enterprise, HogQL/Analytics, ClickHouse",
+            "Critical Path Work": "4%",
+            "Full-Stack Contributor": true
           },
-          "explanation": "Touched 11 codebase zones: Frontend Lib, Other, Frontend UI, Backend API, Tests.... Full-stack contributor (frontend + backend). 4% of files in critical infrastructure paths."
+          "explanation": "Touched 11 codebase zones: Frontend Lib, Other, Frontend UI, Backend API, Tests.... Full-stack contributor (frontend + backend). 4% of files in critical infrastructure paths.",
+          "headline": "undefined codebase zones, undefined critical-path work"
         },
         "consistency": {
           "score": 72,
           "metrics": {
-            "activeWeeks": 13,
-            "totalWeeks": 13,
-            "longestStreak": 12,
-            "contributionEntropy": 0.94,
-            "recentActivityRatio": "89%"
+            "Active Weeks": 13,
+            "Period Length (weeks)": 13,
+            "Longest Streak (weeks)": 12,
+            "Distribution Evenness": "94%",
+            "Recent Activity (last 30d)": "89%"
           },
-          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 94% (higher = more consistent)."
+          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 94% (higher = more consistent).",
+          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
         }
       },
       "notablePRs": [
@@ -236,7 +248,9 @@
             "Other"
           ]
         }
-      ]
+      ],
+      "topStrength": "shippingLeverage",
+      "summary": "Andrew high-volume shipper with 227 PRs merged (75% rate). also contributed 84 code reviews."
     },
     {
       "login": "rafaeelaudibert",
@@ -248,57 +262,62 @@
         "shippingLeverage": {
           "score": 55,
           "metrics": {
-            "mergedPRs": 139,
-            "totalPRs": 155,
-            "mergeRate": "90%",
-            "medianTimeToMergeHours": 22.9,
-            "avgZonesPerPR": 2.5
+            "PRs Merged": 139,
+            "PRs Opened": 155,
+            "Merge Rate": "90%",
+            "Median Time to Merge": "22.9h",
+            "Avg. Zones per PR": 2.5
           },
-          "explanation": "Merged 139 of 155 PRs (90% merge rate). Median time to merge: 23h. PRs averaged 2.5 codebase zones each."
+          "explanation": "Merged 139 of 155 PRs (90% merge rate). Median time to merge: 23h. PRs averaged 2.5 codebase zones each.",
+          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
         },
         "teamMultiplier": {
           "score": 61,
           "metrics": {
-            "reviewsGiven": 94,
-            "substantiveReviewRate": "62%",
-            "distinctAuthorsReviewed": 16,
-            "medianReviewTurnaroundHours": 1.6,
-            "changesRequestedRate": "2%",
-            "pageRankCentrality": 0.0595
+            "Reviews Given": 94,
+            "Substantive Review Rate": "62%",
+            "Authors Reviewed": 16,
+            "Median Review Turnaround": "1.6h",
+            "Changes Requested Rate": "2%",
+            "Review Network Influence": "Moderate"
           },
-          "explanation": "Gave 94 reviews across 16 different authors. 62% included substantive comments. Median review turnaround: 2h."
+          "explanation": "Gave 94 reviews across 16 different authors. 62% included substantive comments. Median review turnaround: 2h.",
+          "headline": "undefined reviews across undefined authors, undefined substantive"
         },
         "qualitySignal": {
           "score": 80,
           "metrics": {
-            "firstPassMergeRate": "97%",
-            "revertRate": "0%",
-            "testInclusionRate": "35%",
-            "avgReviewRounds": 0,
-            "avgPRDescriptionLength": 914
+            "First-Pass Merge Rate": "97%",
+            "Revert Rate": "0%",
+            "Test Inclusion Rate": "35%",
+            "Avg. Review Rounds": 0,
+            "Avg. PR Description Length": "914 chars"
           },
-          "explanation": "97% of PRs merged without changes requested. 35% included tests. Zero reverts."
+          "explanation": "97% of PRs merged without changes requested. 35% included tests. Zero reverts.",
+          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
         },
         "scopeReach": {
           "score": 57,
           "metrics": {
-            "codebaseZonesTouched": 11,
-            "zones": "Other, Frontend Lib, Frontend UI, Backend API, Tests, Backend Models, Infrastructure, Product Modules, Rust Core, Enterprise, HogQL/Analytics",
-            "criticalPathRatio": "2%",
-            "crossStack": true
+            "Codebase Zones Touched": 11,
+            "Zones": "Other, Frontend Lib, Frontend UI, Backend API, Tests, Backend Models, Infrastructure, Product Modules, Rust Core, Enterprise, HogQL/Analytics",
+            "Critical Path Work": "2%",
+            "Full-Stack Contributor": true
           },
-          "explanation": "Touched 11 codebase zones: Other, Frontend Lib, Frontend UI, Backend API, Tests.... Full-stack contributor (frontend + backend). 2% of files in critical infrastructure paths."
+          "explanation": "Touched 11 codebase zones: Other, Frontend Lib, Frontend UI, Backend API, Tests.... Full-stack contributor (frontend + backend). 2% of files in critical infrastructure paths.",
+          "headline": "undefined codebase zones, undefined critical-path work"
         },
         "consistency": {
           "score": 80,
           "metrics": {
-            "activeWeeks": 13,
-            "totalWeeks": 13,
-            "longestStreak": 12,
-            "contributionEntropy": 0.99,
-            "recentActivityRatio": "79%"
+            "Active Weeks": 13,
+            "Period Length (weeks)": 13,
+            "Longest Streak (weeks)": 12,
+            "Distribution Evenness": "99%",
+            "Recent Activity (last 30d)": "79%"
           },
-          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 99% (higher = more consistent)."
+          "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 99% (higher = more consistent).",
+          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
         }
       },
       "notablePRs": [
@@ -355,7 +374,9 @@
             "Product Modules"
           ]
         }
-      ]
+      ],
+      "topStrength": "consistency",
+      "summary": "Rafael merged 139 PRs at 90% rate. remarkably consistent: active 13/13 weeks with a 12-week streak."
     },
     {
       "login": "Gilbert09",
@@ -367,57 +388,62 @@
         "shippingLeverage": {
           "score": 38,
           "metrics": {
-            "mergedPRs": 76,
-            "totalPRs": 89,
-            "mergeRate": "85%",
-            "medianTimeToMergeHours": 2.8,
-            "avgZonesPerPR": 1.9
+            "PRs Merged": 76,
+            "PRs Opened": 89,
+            "Merge Rate": "85%",
+            "Median Time to Merge": "2.8h",
+            "Avg. Zones per PR": 1.9
           },
-          "explanation": "Merged 76 of 89 PRs (85% merge rate). Median time to merge: 3h. PRs averaged 1.9 codebase zones each."
+          "explanation": "Merged 76 of 89 PRs (85% merge rate). Median time to merge: 3h. PRs averaged 1.9 codebase zones each.",
+          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
         },
         "teamMultiplier": {
           "score": 73,
           "metrics": {
-            "reviewsGiven": 83,
-            "substantiveReviewRate": "48%",
-            "distinctAuthorsReviewed": 15,
-            "medianReviewTurnaroundHours": 12.9,
-            "changesRequestedRate": "10%",
-            "pageRankCentrality": 0.045
+            "Reviews Given": 83,
+            "Substantive Review Rate": "48%",
+            "Authors Reviewed": 15,
+            "Median Review Turnaround": "12.9h",
+            "Changes Requested Rate": "10%",
+            "Review Network Influence": "Standard"
           },
-          "explanation": "Gave 83 reviews across 15 different authors. 48% included substantive comments. Median review turnaround: 13h."
+          "explanation": "Gave 83 reviews across 15 different authors. 48% included substantive comments. Median review turnaround: 13h.",
+          "headline": "undefined reviews across undefined authors, undefined substantive"
         },
         "qualitySignal": {
           "score": 80,
           "metrics": {
-            "firstPassMergeRate": "99%",
-            "revertRate": "1%",
-            "testInclusionRate": "53%",
-            "avgReviewRounds": 0,
-            "avgPRDescriptionLength": 552
+            "First-Pass Merge Rate": "99%",
+            "Revert Rate": "1%",
+            "Test Inclusion Rate": "53%",
+            "Avg. Review Rounds": 0,
+            "Avg. PR Description Length": "552 chars"
           },
-          "explanation": "99% of PRs merged without changes requested. 53% included tests. 1 revert(s)."
+          "explanation": "99% of PRs merged without changes requested. 53% included tests. 1 revert(s).",
+          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
         },
         "scopeReach": {
           "score": 54,
           "metrics": {
-            "codebaseZonesTouched": 10,
-            "zones": "Other, Tests, Product Modules, Frontend UI, Backend API, HogQL/Analytics, Frontend Lib, Infrastructure, Backend Models, Enterprise",
-            "criticalPathRatio": "4%",
-            "crossStack": true
+            "Codebase Zones Touched": 10,
+            "Zones": "Other, Tests, Product Modules, Frontend UI, Backend API, HogQL/Analytics, Frontend Lib, Infrastructure, Backend Models, Enterprise",
+            "Critical Path Work": "4%",
+            "Full-Stack Contributor": true
           },
-          "explanation": "Touched 10 codebase zones: Other, Tests, Product Modules, Frontend UI, Backend API.... Full-stack contributor (frontend + backend). 4% of files in critical infrastructure paths."
+          "explanation": "Touched 10 codebase zones: Other, Tests, Product Modules, Frontend UI, Backend API.... Full-stack contributor (frontend + backend). 4% of files in critical infrastructure paths.",
+          "headline": "undefined codebase zones, undefined critical-path work"
         },
         "consistency": {
           "score": 64,
           "metrics": {
-            "activeWeeks": 12,
-            "totalWeeks": 13,
-            "longestStreak": 8,
-            "contributionEntropy": 0.94,
-            "recentActivityRatio": "70%"
+            "Active Weeks": 12,
+            "Period Length (weeks)": 13,
+            "Longest Streak (weeks)": 8,
+            "Distribution Evenness": "94%",
+            "Recent Activity (last 30d)": "70%"
           },
-          "explanation": "Active in 12 of 13 weeks. Longest streak: 8 consecutive weeks. Activity distribution entropy: 94% (higher = more consistent)."
+          "explanation": "Active in 12 of 13 weeks. Longest streak: 8 consecutive weeks. Activity distribution entropy: 94% (higher = more consistent).",
+          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
         }
       },
       "notablePRs": [
@@ -469,7 +495,9 @@
             "Tests"
           ]
         }
-      ]
+      ],
+      "topStrength": "teamMultiplier",
+      "summary": "Tom merged 76 PRs at 85% rate. stands out as a team multiplier: 83 reviews across 15 teammates, with 10% constructive pushback."
     },
     {
       "login": "Piccirello",
@@ -481,57 +509,62 @@
         "shippingLeverage": {
           "score": 47,
           "metrics": {
-            "mergedPRs": 93,
-            "totalPRs": 103,
-            "mergeRate": "90%",
-            "medianTimeToMergeHours": 3.8,
-            "avgZonesPerPR": 2.6
+            "PRs Merged": 93,
+            "PRs Opened": 103,
+            "Merge Rate": "90%",
+            "Median Time to Merge": "3.8h",
+            "Avg. Zones per PR": 2.6
           },
-          "explanation": "Merged 93 of 103 PRs (90% merge rate). Median time to merge: 4h. PRs averaged 2.6 codebase zones each."
+          "explanation": "Merged 93 of 103 PRs (90% merge rate). Median time to merge: 4h. PRs averaged 2.6 codebase zones each.",
+          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
         },
         "teamMultiplier": {
           "score": 43,
           "metrics": {
-            "reviewsGiven": 46,
-            "substantiveReviewRate": "52%",
-            "distinctAuthorsReviewed": 10,
-            "medianReviewTurnaroundHours": 1.5,
-            "changesRequestedRate": "0%",
-            "pageRankCentrality": 0.0556
+            "Reviews Given": 46,
+            "Substantive Review Rate": "52%",
+            "Authors Reviewed": 10,
+            "Median Review Turnaround": "1.5h",
+            "Changes Requested Rate": "0%",
+            "Review Network Influence": "Moderate"
           },
-          "explanation": "Gave 46 reviews across 10 different authors. 52% included substantive comments. Median review turnaround: 1h."
+          "explanation": "Gave 46 reviews across 10 different authors. 52% included substantive comments. Median review turnaround: 1h.",
+          "headline": "undefined reviews across undefined authors, undefined substantive"
         },
         "qualitySignal": {
           "score": 86,
           "metrics": {
-            "firstPassMergeRate": "100%",
-            "revertRate": "0%",
-            "testInclusionRate": "72%",
-            "avgReviewRounds": 0,
-            "avgPRDescriptionLength": 211
+            "First-Pass Merge Rate": "100%",
+            "Revert Rate": "0%",
+            "Test Inclusion Rate": "72%",
+            "Avg. Review Rounds": 0,
+            "Avg. PR Description Length": "211 chars"
           },
-          "explanation": "100% of PRs merged without changes requested. 72% included tests. Zero reverts."
+          "explanation": "100% of PRs merged without changes requested. 72% included tests. Zero reverts.",
+          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
         },
         "scopeReach": {
           "score": 68,
           "metrics": {
-            "codebaseZonesTouched": 12,
-            "zones": "Other, Infrastructure, Backend Models, Tests, Backend API, HogQL/Analytics, Product Modules, Enterprise, Frontend Lib, Data Pipeline, ClickHouse, Frontend UI",
-            "criticalPathRatio": "26%",
-            "crossStack": true
+            "Codebase Zones Touched": 12,
+            "Zones": "Other, Infrastructure, Backend Models, Tests, Backend API, HogQL/Analytics, Product Modules, Enterprise, Frontend Lib, Data Pipeline, ClickHouse, Frontend UI",
+            "Critical Path Work": "26%",
+            "Full-Stack Contributor": true
           },
-          "explanation": "Touched 12 codebase zones: Other, Infrastructure, Backend Models, Tests, Backend API.... Full-stack contributor (frontend + backend). 26% of files in critical infrastructure paths."
+          "explanation": "Touched 12 codebase zones: Other, Infrastructure, Backend Models, Tests, Backend API.... Full-stack contributor (frontend + backend). 26% of files in critical infrastructure paths.",
+          "headline": "undefined codebase zones, undefined critical-path work"
         },
         "consistency": {
           "score": 56,
           "metrics": {
-            "activeWeeks": 12,
-            "totalWeeks": 13,
-            "longestStreak": 7,
-            "contributionEntropy": 0.91,
-            "recentActivityRatio": "76%"
+            "Active Weeks": 12,
+            "Period Length (weeks)": 13,
+            "Longest Streak (weeks)": 7,
+            "Distribution Evenness": "91%",
+            "Recent Activity (last 30d)": "76%"
           },
-          "explanation": "Active in 12 of 13 weeks. Longest streak: 7 consecutive weeks. Activity distribution entropy: 91% (higher = more consistent)."
+          "explanation": "Active in 12 of 13 weeks. Longest streak: 7 consecutive weeks. Activity distribution entropy: 91% (higher = more consistent).",
+          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
         }
       },
       "notablePRs": [
@@ -589,7 +622,9 @@
             "Product Modules"
           ]
         }
-      ]
+      ],
+      "topStrength": "scopeReach",
+      "summary": "Tom merged 93 PRs at 90% rate. broad architectural impact across 12 zones with 26% in critical infrastructure."
     }
   ]
 }

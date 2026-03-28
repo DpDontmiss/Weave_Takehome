@@ -13,6 +13,8 @@ export interface EngineerProfile {
   name: string;
   rank: number;
   compositeScore: number;
+  summary: string; // Plain-English 1-2 sentence narrative of WHY they rank here
+  topStrength: DimensionKey; // Their highest-scoring dimension
   dimensions: {
     shippingLeverage: DimensionScore;
     teamMultiplier: DimensionScore;
@@ -25,6 +27,7 @@ export interface EngineerProfile {
 
 export interface DimensionScore {
   score: number; // 0-100
+  headline: string; // One-line key insight, e.g. "218 PRs merged at 79% rate"
   metrics: Record<string, number | string | boolean>;
   explanation: string;
 }
