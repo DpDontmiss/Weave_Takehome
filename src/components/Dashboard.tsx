@@ -175,6 +175,36 @@ export function Dashboard({ data }: DashboardProps) {
           </table>
         </div>
 
+        {/* Scoring explainer — always visible, not behind a click */}
+        <div className="bg-card/50 border border-border/50 rounded-xl px-4 py-3 mb-5">
+          <div className="flex items-start gap-3">
+            <div className="shrink-0 mt-0.5 w-5 h-5 rounded bg-accent/20 flex items-center justify-center">
+              <span className="text-accent text-[10px] font-bold">f(x)</span>
+            </div>
+            <div className="text-xs text-muted leading-relaxed">
+              <span className="text-foreground font-medium">How scores work:</span>{" "}
+              Each engineer is scored 0&ndash;100 on five dimensions, then combined:{" "}
+              <span className="font-mono text-foreground/70">
+                impact = 0.30&times;Shipping + 0.25&times;TeamMultiplier +
+                0.20&times;Quality + 0.15&times;Scope + 0.10&times;Consistency
+              </span>
+              . Scores are relative to the 28-engineer cohort (min-max normalized), not
+              absolute. A score of 70 means &ldquo;top of this group,&rdquo; not &ldquo;70% of some
+              ideal.&rdquo;{" "}
+              <button
+                onClick={() => {
+                  document
+                    .querySelector("[data-methodology-btn]")
+                    ?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+                }}
+                className="text-accent hover:text-accent-hover underline underline-offset-2"
+              >
+                Full methodology &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Engineer Detail Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {data.topEngineers.map((engineer) => (

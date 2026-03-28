@@ -65,10 +65,7 @@ export function DimensionBreakdown({
             {Object.entries(dimension.metrics).map(([key, value]) => (
               <div key={key} className="flex justify-between text-xs">
                 <span className="text-muted">
-                  {key
-                    .replace(/([A-Z])/g, " $1")
-                    .replace(/^./, (s) => s.toUpperCase())
-                    .trim()}
+                  {key}
                 </span>
                 <span className="text-foreground font-medium tabular-nums">
                   {typeof value === "boolean"

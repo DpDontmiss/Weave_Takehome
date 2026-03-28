@@ -10,6 +10,7 @@ export function MethodologyModal() {
   return (
     <>
       <button
+        data-methodology-btn
         onClick={() => setOpen(true)}
         className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-card hover:bg-card-hover border border-border rounded-lg text-xs text-muted hover:text-foreground transition-colors"
       >
@@ -18,11 +19,16 @@ export function MethodologyModal() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-card border border-border rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="sticky top-0 bg-card border-b border-border px-6 py-4 flex items-center justify-between">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setOpen(false);
+          }}
+        >
+          <div className="bg-card border border-border rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto">
+            <div className="sticky top-0 bg-card border-b border-border px-6 py-4 flex items-center justify-between z-10">
               <h2 className="text-lg font-bold text-foreground">
-                Impact Scoring Methodology
+                Scoring Methodology
               </h2>
               <button
                 onClick={() => setOpen(false)}
@@ -41,16 +47,37 @@ export function MethodologyModal() {
                 <p className="text-xs text-muted leading-relaxed">
                   Impact = how much an engineer makes the product better AND
                   makes other engineers more effective. Lines of code, commit
-                  counts, and files changed do NOT define impact. Instead, this
-                  model measures: shipping discipline, review quality, code
-                  craftsmanship, architectural breadth, and sustained engagement.
+                  counts, and files changed are deliberately excluded as primary
+                  signals. The model measures shipping discipline, review quality,
+                  code craftsmanship, architectural breadth, and sustained
+                  engagement.
                 </p>
               </div>
 
-              {/* Dimensions */}
+              {/* The Formula */}
+              <div>
+                <h3 className="text-sm font-semibold text-foreground mb-2">
+                  Composite Score Formula
+                </h3>
+                <div className="bg-background/50 border border-border/50 rounded-lg p-3 font-mono text-xs text-foreground/80 leading-relaxed">
+                  <p className="mb-2">
+                    <span className="text-accent font-semibold">impact</span> =
+                    0.30 &times; shipping + 0.25 &times; teamMultiplier + 0.20
+                    &times; quality + 0.15 &times; scope + 0.10 &times;
+                    consistency
+                  </p>
+                  <p className="text-muted text-[10px]">
+                    Each dimension is scored 0&ndash;100 via min-max
+                    normalization across all 28 qualifying engineers. The final
+                    composite is also scaled to 0&ndash;100.
+                  </p>
+                </div>
+              </div>
+
+              {/* Dimensions with sub-formulas */}
               <div>
                 <h3 className="text-sm font-semibold text-foreground mb-3">
-                  Five Dimensions of Impact
+                  Dimension Breakdown
                 </h3>
                 <div className="space-y-4">
                   {(Object.keys(DIMENSION_INFO) as DimensionKey[]).map(
@@ -62,7 +89,7 @@ export function MethodologyModal() {
                             className="w-1 shrink-0 rounded-full"
                             style={{ backgroundColor: info.color }}
                           />
-                          <div>
+                          <div className="flex-1">
                             <div className="flex items-center gap-2">
                               <h4 className="text-sm font-medium text-foreground">
                                 {info.label}
@@ -74,6 +101,18 @@ export function MethodologyModal() {
                             <p className="text-xs text-muted mt-1 leading-relaxed">
                               {info.description}
                             </p>
+                            <div className="mt-1.5 bg-background/30 border border-border/30 rounded px-2 py-1.5 font-mono text-[10px] text-foreground/60">
+                              {key === "shippingLeverage" &&
+                                "= 0.30×mergeRate + 0.25×zoneCrossings + 0.20×workTypeWeight + 0.15×(1/timeToMerge) + 0.10×mergedCount"}
+                              {key === "teamMultiplier" &&
+                                "= (0.25×substantiveRatio + 0.20×commentDepth + 0.20×authorDiversity + 0.15×bellCurve(crRate, 0.22) + 0.10×(1/turnaround) + 0.10×reviewCount) × (1 + 0.30×pageRank)"}
+                              {key === "qualitySignal" &&
+                                "= 0.30×firstPassRate + 0.25×(1−revertRate) + 0.20×testRate + 0.15×(1/friction) + 0.10×descLength"}
+                              {key === "scopeReach" &&
+                                "= 0.30×zoneCount + 0.30×criticalPathRatio + 0.20×crossStack + 0.20×issueEngagement"}
+                              {key === "consistency" &&
+                                "= 0.30×(activeWeeks/13) + 0.30×shannonEntropy + 0.20×(streak/13) + 0.20×bellCurve(recentRatio, 0.33)"}
+                            </div>
                           </div>
                         </div>
                       );
@@ -85,48 +124,45 @@ export function MethodologyModal() {
               {/* Novel Signals */}
               <div>
                 <h3 className="text-sm font-semibold text-foreground mb-2">
-                  Novel Analytical Signals
+                  Novel Signals
                 </h3>
                 <ul className="text-xs text-muted space-y-2 leading-relaxed">
                   <li>
                     <strong className="text-foreground">
                       Review Network PageRank
                     </strong>{" "}
-                    &mdash; Treats the code review graph as a network and computes
-                    PageRank centrality. Engineers who are structural &quot;hubs&quot;
-                    in the review network (everyone relies on them) get a bonus.
+                    &mdash; Builds a directed graph where edge(A&rarr;B) means A
+                    reviewed B&apos;s PR. Runs 20 iterations of PageRank (damping
+                    = 0.85). Engineers who are structural hubs get up to a 30%
+                    bonus on their Team Multiplier score.
                   </li>
                   <li>
                     <strong className="text-foreground">
                       Codebase Zone Mapping
                     </strong>{" "}
-                    &mdash; Instead of counting files, maps each file to architectural
-                    zones (Frontend UI, Backend API, HogQL, ClickHouse, Rust Core,
-                    etc.). PR complexity = how many zones it spans.
+                    &mdash; Maps each file path to one of 12 architectural zones
+                    (Frontend UI, Backend API, HogQL, ClickHouse, Rust Core,
+                    etc.). PR complexity = distinct zones spanned, not lines
+                    changed. A 50-line PR touching API + HogQL + Tests scores
+                    higher than a 2000-line single-zone migration.
                   </li>
                   <li>
                     <strong className="text-foreground">
-                      Shannon Entropy for Consistency
+                      Shannon Entropy
                     </strong>{" "}
-                    &mdash; Uses information theory to measure how evenly distributed
-                    contributions are across weeks, rather than just counting active
-                    days.
+                    &mdash; H = &minus;&Sigma;(p &times; log2(p)) over weekly
+                    contribution counts, normalized to [0,1]. A score of 1.0
+                    means perfectly even distribution across weeks; 0.0 means all
+                    activity in a single week.
                   </li>
                   <li>
                     <strong className="text-foreground">
-                      Bell Curve for Review Pushback
+                      Bell Curve Scoring
                     </strong>{" "}
-                    &mdash; The &quot;changes requested&quot; rate uses a bell curve
-                    centered at ~20%. Neither rubber-stamping (0%) nor constant
-                    pushback (100%) is ideal.
-                  </li>
-                  <li>
-                    <strong className="text-foreground">
-                      Critical Path Ratio
-                    </strong>{" "}
-                    &mdash; Identifies work on core infrastructure (HogQL, ClickHouse,
-                    Rust) vs. peripheral changes. Infrastructure work has outsized
-                    impact but is often invisible.
+                    &mdash; Used for changes-requested rate (optimal ~20%) and
+                    recent-activity ratio (optimal ~33%). Formula: exp(&minus;(x
+                    &minus; center)&sup2; / (2&sigma;&sup2;)). Rewards the
+                    healthy middle, penalizes extremes.
                   </li>
                 </ul>
               </div>
@@ -134,55 +170,48 @@ export function MethodologyModal() {
               {/* What this does NOT measure */}
               <div>
                 <h3 className="text-sm font-semibold text-foreground mb-2">
-                  What This Does NOT Measure
+                  Limitations
                 </h3>
                 <ul className="text-xs text-muted space-y-1 leading-relaxed list-disc ml-4">
                   <li>
-                    Lines of code (a 2000-line auto-migration and a 50-line
-                    critical bugfix are evaluated on complexity and type, not
-                    size)
+                    Lines of code (a 2000-line migration and a 50-line bugfix are
+                    evaluated on zone complexity and type, not size)
                   </li>
                   <li>
-                    Raw commit count (used only as a 10% tiebreaker within
-                    Shipping Leverage)
+                    Slack, meetings, mentorship, design, on-call, incident
+                    response
                   </li>
                   <li>
-                    Slack messages, meetings, or non-GitHub contributions
-                  </li>
-                  <li>
-                    Design decisions, product thinking, or mentorship outside of
-                    code review
-                  </li>
-                  <li>
-                    On-call work, incident response, or operational excellence
+                    Anything outside publicly available GitHub data
                   </li>
                 </ul>
                 <p className="text-[10px] text-muted/60 mt-2 italic">
-                  This analysis uses only publicly available GitHub data. Real
-                  engineering impact extends far beyond what any code metric can
-                  capture.
+                  Real engineering impact extends far beyond what any code metric
+                  can capture. These scores are relative to the analyzed cohort,
+                  not absolute measures of ability.
                 </p>
               </div>
 
               {/* Data Details */}
               <div>
                 <h3 className="text-sm font-semibold text-foreground mb-2">
-                  Data & Filtering
+                  Data Pipeline
                 </h3>
                 <ul className="text-xs text-muted space-y-1 leading-relaxed list-disc ml-4">
-                  <li>Data source: GitHub GraphQL API (PostHog/posthog repository)</li>
-                  <li>Time window: Last 90 days</li>
                   <li>
-                    Included: Org members and collaborators with 3+ merged PRs
-                    and 2+ active weeks
+                    GitHub GraphQL API &rarr; 7,956 PRs fetched with files,
+                    reviews, labels
                   </li>
                   <li>
-                    Excluded: Bots (dependabot, renovate, etc.) and external
-                    contributors
+                    Filtered to org members/collaborators with &ge;3 merged PRs
+                    and &ge;2 active weeks
                   </li>
                   <li>
-                    Normalization: Min-max across the cohort (0-100 scale per
-                    dimension)
+                    Bots excluded (dependabot, renovate, github-actions, *[bot])
+                  </li>
+                  <li>
+                    28 engineers qualified &rarr; per-dimension min-max
+                    normalization &rarr; weighted composite
                   </li>
                 </ul>
               </div>

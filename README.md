@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PostHog Engineering Impact Dashboard
 
-## Getting Started
+**Live:** https://posthog-impact-dashboard.netlify.app
 
-First, run the development server:
+Identifies the top 5 most impactful engineers at PostHog over the last 90 days using multi-dimensional analysis of GitHub data.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Approach
+
+### What "impact" means here
+
+Every engineer knows that counting lines of code doesn't capture impact. This dashboard defines impact across **five dimensions**, each measuring a different way an engineer moves the needle:
+
+| Dimension | Weight | What it captures | Key signals |
+|-----------|--------|-----------------|-------------|
+| **Shipping Leverage** | 30% | How effectively they ship real work | Merge rate, PR architectural complexity (zone span, not LOC), work type weighting (infra > features > chores), time-to-merge |
+| **Team Multiplier** | 25% | How much they amplify others through review | Review depth & substantiveness, author diversity, turnaround time, PageRank centrality in the review network |
+| **Quality Signal** | 20% | Whether their code lands cleanly | First-pass merge rate, revert rate, test inclusion, PR description quality |
+| **Scope & Reach** | 15% | Breadth and criticality of contributions | Codebase zones touched, critical-path ratio (HogQL, ClickHouse, Rust), cross-stack work |
+| **Consistency** | 10% | Sustained output vs. burst activity | Shannon entropy of weekly activity, streak length, recency of contributions |
+
+### How scores are calculated
+
+Each dimension produces a 0–100 score via min-max normalization across the 28-engineer cohort. The composite score is a weighted sum:
+
+```
+composite = 0.30 × shipping + 0.25 × teamMultiplier + 0.20 × quality + 0.15 × scope + 0.10 × consistency
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Each dimension is itself a weighted combination of normalized sub-metrics. For example, Shipping Leverage:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+shipping = 0.30 × mergeRate + 0.25 × complexitySum + 0.20 × workTypeSum + 0.15 × (1/timeToMerge) + 0.10 × mergedCount
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### What makes this different from naive metrics
 
-## Learn More
+- **PageRank on the review graph** — treats code review as a network; engineers who are structural hubs (everyone relies on them for review) get a bonus
+- **Codebase zone mapping** — maps each file to architectural zones (Frontend UI, Backend API, HogQL, ClickHouse, Rust Core, etc.); PR complexity = how many zones it spans, not how many lines it touches
+- **Shannon entropy for consistency** — uses information theory to distinguish steady contributors from burst activity
+- **Bell curve for review pushback** — a ~20% changes-requested rate is healthy; 0% means rubber-stamping, 100% means combativeness
+- **Critical-path ratio** — infrastructure work (HogQL, ClickHouse, Rust) has outsized impact but is often invisible in naive metrics
 
-To learn more about Next.js, take a look at the following resources:
+### What this does NOT measure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Lines of code or raw commit counts
+- Slack conversations, meetings, or mentorship outside of code review
+- Design decisions, product thinking, or on-call work
+- Anything outside of publicly available GitHub data
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Data
 
-## Deploy on Vercel
+- **Source:** GitHub GraphQL API (`PostHog/posthog` repository)
+- **Window:** Last 90 days (7,956 PRs fetched)
+- **Included:** Org members and collaborators with ≥3 merged PRs and ≥2 active weeks
+- **Excluded:** Bots (dependabot, renovate, github-actions) and external contributors
+- **Engineers evaluated:** 28
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Architecture
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+scripts/collect-data.ts    → Fetches PRs/reviews/files via GitHub GraphQL API
+                           → Computes raw metrics per engineer
+                           → Builds review network, computes PageRank
+                           → Normalizes, scores, ranks
+                           → Writes src/data/impact-data.json
+
+scripts/enrich-data.ts     → Adds narrative summaries, dimension headlines,
+                             and human-friendly metric labels
+
+src/components/            → Next.js dashboard (static export)
+  Dashboard.tsx            → At-a-glance comparison table + card grid
+  EngineerCard.tsx         → Per-engineer profile with summary, dimensions, evidence
+  DimensionBreakdown.tsx   → Expandable metric drill-down
+  MethodologyModal.tsx     → Full scoring methodology explanation
+```
+
+The dashboard is a **static site** — all data is pre-computed into a JSON file at build time. No API calls at runtime. Loads instantly.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router, static export)
+- **Styling:** Tailwind CSS v4
+- **Language:** TypeScript
+- **Data:** GitHub GraphQL API via `@octokit/graphql`
+- **Hosting:** Netlify
+
+## Running Locally
+
+```bash
+npm install
+
+# Collect fresh data (requires `gh auth login`)
+npm run collect-data
+npx tsx scripts/enrich-data.ts
+
+# Dev server
+npm run dev
+
+# Build + export
+npm run build
+```
