@@ -22,7 +22,7 @@
             "Avg. Zones per PR": 2
           },
           "explanation": "Merged 218 of 275 PRs (79% merge rate). Median time to merge: 10h. PRs averaged 2.0 codebase zones each.",
-          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
+          "headline": "218 PRs merged at 79% rate"
         },
         "teamMultiplier": {
           "score": 62,
@@ -35,7 +35,7 @@
             "Review Network Influence": "High (top reviewer hub)"
           },
           "explanation": "Gave 79 reviews across 13 different authors. 65% included substantive comments. Median review turnaround: 0h.",
-          "headline": "undefined reviews across undefined authors, undefined substantive"
+          "headline": "79 reviews across 13 authors, 65% substantive"
         },
         "qualitySignal": {
           "score": 79,
@@ -47,7 +47,7 @@
             "Avg. PR Description Length": "619 chars"
           },
           "explanation": "99% of PRs merged without changes requested. 28% included tests. 2 revert(s).",
-          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
+          "headline": "99% pass on first review, 28% include tests"
         },
         "scopeReach": {
           "score": 61,
@@ -58,7 +58,7 @@
             "Full-Stack Contributor": true
           },
           "explanation": "Touched 12 codebase zones: Frontend Lib, Frontend UI, Tests, Other, Enterprise.... Full-stack contributor (frontend + backend). 3% of files in critical infrastructure paths.",
-          "headline": "undefined codebase zones, undefined critical-path work"
+          "headline": "12 codebase zones, 3% critical-path work, full-stack"
         },
         "consistency": {
           "score": 77,
@@ -70,7 +70,7 @@
             "Recent Activity (last 30d)": "84%"
           },
           "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 97% (higher = more consistent).",
-          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
+          "headline": "Active 13/13 weeks, 12-week streak"
         }
       },
       "notablePRs": [
@@ -146,7 +146,7 @@
             "Avg. Zones per PR": 2
           },
           "explanation": "Merged 227 of 303 PRs (75% merge rate). Median time to merge: 3h. PRs averaged 2.0 codebase zones each.",
-          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
+          "headline": "227 PRs merged at 75% rate"
         },
         "teamMultiplier": {
           "score": 43,
@@ -159,7 +159,7 @@
             "Review Network Influence": "High (top reviewer hub)"
           },
           "explanation": "Gave 84 reviews across 12 different authors. 24% included substantive comments. Median review turnaround: 1h.",
-          "headline": "undefined reviews across undefined authors, undefined substantive"
+          "headline": "84 reviews across 12 authors, 24% substantive"
         },
         "qualitySignal": {
           "score": 88,
@@ -171,7 +171,7 @@
             "Avg. PR Description Length": "1217 chars"
           },
           "explanation": "100% of PRs merged without changes requested. 37% included tests. Zero reverts.",
-          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
+          "headline": "100% pass on first review, 37% include tests"
         },
         "scopeReach": {
           "score": 57,
@@ -182,7 +182,7 @@
             "Full-Stack Contributor": true
           },
           "explanation": "Touched 11 codebase zones: Frontend Lib, Other, Frontend UI, Backend API, Tests.... Full-stack contributor (frontend + backend). 4% of files in critical infrastructure paths.",
-          "headline": "undefined codebase zones, undefined critical-path work"
+          "headline": "11 codebase zones, 4% critical-path work, full-stack"
         },
         "consistency": {
           "score": 72,
@@ -194,7 +194,7 @@
             "Recent Activity (last 30d)": "89%"
           },
           "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 94% (higher = more consistent).",
-          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
+          "headline": "Active 13/13 weeks, 12-week streak"
         }
       },
       "notablePRs": [
@@ -269,7 +269,7 @@
             "Avg. Zones per PR": 2.5
           },
           "explanation": "Merged 139 of 155 PRs (90% merge rate). Median time to merge: 23h. PRs averaged 2.5 codebase zones each.",
-          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
+          "headline": "139 PRs merged at 90% rate"
         },
         "teamMultiplier": {
           "score": 61,
@@ -282,7 +282,7 @@
             "Review Network Influence": "Moderate"
           },
           "explanation": "Gave 94 reviews across 16 different authors. 62% included substantive comments. Median review turnaround: 2h.",
-          "headline": "undefined reviews across undefined authors, undefined substantive"
+          "headline": "94 reviews across 16 authors, 62% substantive"
         },
         "qualitySignal": {
           "score": 80,
@@ -294,7 +294,7 @@
             "Avg. PR Description Length": "914 chars"
           },
           "explanation": "97% of PRs merged without changes requested. 35% included tests. Zero reverts.",
-          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
+          "headline": "97% pass on first review, 35% include tests"
         },
         "scopeReach": {
           "score": 57,
@@ -305,7 +305,7 @@
             "Full-Stack Contributor": true
           },
           "explanation": "Touched 11 codebase zones: Other, Frontend Lib, Frontend UI, Backend API, Tests.... Full-stack contributor (frontend + backend). 2% of files in critical infrastructure paths.",
-          "headline": "undefined codebase zones, undefined critical-path work"
+          "headline": "11 codebase zones, 2% critical-path work, full-stack"
         },
         "consistency": {
           "score": 80,
@@ -317,7 +317,7 @@
             "Recent Activity (last 30d)": "79%"
           },
           "explanation": "Active in 13 of 13 weeks. Longest streak: 12 consecutive weeks. Activity distribution entropy: 99% (higher = more consistent).",
-          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
+          "headline": "Active 13/13 weeks, 12-week streak"
         }
       },
       "notablePRs": [
@@ -395,7 +395,7 @@
             "Avg. Zones per PR": 1.9
           },
           "explanation": "Merged 76 of 89 PRs (85% merge rate). Median time to merge: 3h. PRs averaged 1.9 codebase zones each.",
-          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
+          "headline": "76 PRs merged at 85% rate"
         },
         "teamMultiplier": {
           "score": 73,
@@ -408,7 +408,7 @@
             "Review Network Influence": "Standard"
           },
           "explanation": "Gave 83 reviews across 15 different authors. 48% included substantive comments. Median review turnaround: 13h.",
-          "headline": "undefined reviews across undefined authors, undefined substantive"
+          "headline": "83 reviews across 15 authors, 48% substantive"
         },
         "qualitySignal": {
           "score": 80,
@@ -420,7 +420,7 @@
             "Avg. PR Description Length": "552 chars"
           },
           "explanation": "99% of PRs merged without changes requested. 53% included tests. 1 revert(s).",
-          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
+          "headline": "99% pass on first review, 53% include tests"
         },
         "scopeReach": {
           "score": 54,
@@ -431,7 +431,7 @@
             "Full-Stack Contributor": true
           },
           "explanation": "Touched 10 codebase zones: Other, Tests, Product Modules, Frontend UI, Backend API.... Full-stack contributor (frontend + backend). 4% of files in critical infrastructure paths.",
-          "headline": "undefined codebase zones, undefined critical-path work"
+          "headline": "10 codebase zones, 4% critical-path work, full-stack"
         },
         "consistency": {
           "score": 64,
@@ -443,7 +443,7 @@
             "Recent Activity (last 30d)": "70%"
           },
           "explanation": "Active in 12 of 13 weeks. Longest streak: 8 consecutive weeks. Activity distribution entropy: 94% (higher = more consistent).",
-          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
+          "headline": "Active 12/13 weeks, 8-week streak"
         }
       },
       "notablePRs": [
@@ -497,7 +497,7 @@
         }
       ],
       "topStrength": "teamMultiplier",
-      "summary": "Tom merged 76 PRs at 85% rate. stands out as a team multiplier: 83 reviews across 15 teammates, with 10% constructive pushback."
+      "summary": "Tom merged 76 PRs at 85% rate. stands out as a team multiplier: 83 reviews across 15 teammates."
     },
     {
       "login": "Piccirello",
@@ -516,7 +516,7 @@
             "Avg. Zones per PR": 2.6
           },
           "explanation": "Merged 93 of 103 PRs (90% merge rate). Median time to merge: 4h. PRs averaged 2.6 codebase zones each.",
-          "headline": "undefined PRs merged at undefined rate, ~undefinedh median merge time"
+          "headline": "93 PRs merged at 90% rate"
         },
         "teamMultiplier": {
           "score": 43,
@@ -529,7 +529,7 @@
             "Review Network Influence": "Moderate"
           },
           "explanation": "Gave 46 reviews across 10 different authors. 52% included substantive comments. Median review turnaround: 1h.",
-          "headline": "undefined reviews across undefined authors, undefined substantive"
+          "headline": "46 reviews across 10 authors, 52% substantive"
         },
         "qualitySignal": {
           "score": 86,
@@ -541,7 +541,7 @@
             "Avg. PR Description Length": "211 chars"
           },
           "explanation": "100% of PRs merged without changes requested. 72% included tests. Zero reverts.",
-          "headline": "undefined pass on first review, undefined include tests, undefined reverts"
+          "headline": "100% pass on first review, 72% include tests"
         },
         "scopeReach": {
           "score": 68,
@@ -552,7 +552,7 @@
             "Full-Stack Contributor": true
           },
           "explanation": "Touched 12 codebase zones: Other, Infrastructure, Backend Models, Tests, Backend API.... Full-stack contributor (frontend + backend). 26% of files in critical infrastructure paths.",
-          "headline": "undefined codebase zones, undefined critical-path work"
+          "headline": "12 codebase zones, 26% critical-path work, full-stack"
         },
         "consistency": {
           "score": 56,
@@ -564,7 +564,7 @@
             "Recent Activity (last 30d)": "76%"
           },
           "explanation": "Active in 12 of 13 weeks. Longest streak: 7 consecutive weeks. Activity distribution entropy: 91% (higher = more consistent).",
-          "headline": "Active undefined/undefined weeks, undefined-week streak, undefined activity in last 30d"
+          "headline": "Active 12/13 weeks, 7-week streak"
         }
       },
       "notablePRs": [

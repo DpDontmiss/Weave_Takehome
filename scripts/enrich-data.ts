@@ -12,7 +12,10 @@ const DIMENSION_LABELS: Record<string, string> = {
   consistency: "Consistency",
 };
 
-const METRIC_RENAMES: Record<string, string> = {
+// Maps from BOTH original and renamed keys to a canonical name,
+// so this script is idempotent (safe to run multiple times).
+const CANONICAL: Record<string, string> = {
+  // Original keys → canonical
   mergedPRs: "PRs Merged",
   totalPRs: "PRs Opened",
   mergeRate: "Merge Rate",
@@ -38,7 +41,48 @@ const METRIC_RENAMES: Record<string, string> = {
   longestStreak: "Longest Streak (weeks)",
   contributionEntropy: "Distribution Evenness",
   recentActivityRatio: "Recent Activity (last 30d)",
+  // Already-renamed keys → themselves (idempotent)
+  "PRs Merged": "PRs Merged",
+  "PRs Opened": "PRs Opened",
+  "Merge Rate": "Merge Rate",
+  "Median Time to Merge": "Median Time to Merge",
+  "Avg. Zones per PR": "Avg. Zones per PR",
+  "Reviews Given": "Reviews Given",
+  "Substantive Review Rate": "Substantive Review Rate",
+  "Authors Reviewed": "Authors Reviewed",
+  "Median Review Turnaround": "Median Review Turnaround",
+  "Changes Requested Rate": "Changes Requested Rate",
+  "Review Network Influence": "Review Network Influence",
+  "First-Pass Merge Rate": "First-Pass Merge Rate",
+  "Revert Rate": "Revert Rate",
+  "Test Inclusion Rate": "Test Inclusion Rate",
+  "Avg. Review Rounds": "Avg. Review Rounds",
+  "Avg. PR Description Length": "Avg. PR Description Length",
+  "Codebase Zones Touched": "Codebase Zones Touched",
+  Zones: "Zones",
+  "Critical Path Work": "Critical Path Work",
+  "Full-Stack Contributor": "Full-Stack Contributor",
+  "Active Weeks": "Active Weeks",
+  "Period Length (weeks)": "Period Length (weeks)",
+  "Longest Streak (weeks)": "Longest Streak (weeks)",
+  "Distribution Evenness": "Distribution Evenness",
+  "Recent Activity (last 30d)": "Recent Activity (last 30d)",
 };
+
+// Helper: get a metric value by canonical name, regardless of whether
+// the JSON currently has original or renamed keys.
+function getMetric(
+  metrics: Record<string, unknown>,
+  canonicalName: string
+): unknown {
+  // Direct match
+  if (canonicalName in metrics) return metrics[canonicalName];
+  // Search by canonical mapping
+  for (const [key, val] of Object.entries(CANONICAL)) {
+    if (val === canonicalName && key in metrics) return metrics[key];
+  }
+  return undefined;
+}
 
 // First pass: collect all engineers' scores to find what's UNIQUE about each
 const allScores: Record<string, number[]> = {};
@@ -51,12 +95,17 @@ for (const eng of data.topEngineers) {
 for (const eng of data.topEngineers) {
   const dims = eng.dimensions;
 
-  // Find their most DIFFERENTIATING dimension (highest relative to peers, not just absolute)
+  // Helper to get a metric from a dimension
+  const m = (dimKey: string, metricName: string) =>
+    getMetric(dims[dimKey].metrics, metricName);
+
+  // Find most differentiating dimension (highest relative to peers)
   let bestRelative = "";
   let bestRelativeGap = -Infinity;
   for (const k of dimKeys) {
     const peerAvg =
-      allScores[k].reduce((a: number, b: number) => a + b, 0) / allScores[k].length;
+      allScores[k].reduce((a: number, b: number) => a + b, 0) /
+      allScores[k].length;
     const gap = dims[k].score - peerAvg;
     if (gap > bestRelativeGap) {
       bestRelativeGap = gap;
@@ -65,34 +114,46 @@ for (const eng of data.topEngineers) {
   }
   eng.topStrength = bestRelative;
 
-  // Generate headlines per dimension
-  const m = (key: string) => dims[key].metrics;
+  // ── Generate headlines per dimension ──────────────────────────────
+  dims.shippingLeverage.headline = `${m("shippingLeverage", "PRs Merged")} PRs merged at ${m("shippingLeverage", "Merge Rate")} rate`;
 
-  dims.shippingLeverage.headline = `${m("shippingLeverage").mergedPRs} PRs merged at ${m("shippingLeverage").mergeRate} rate, ~${m("shippingLeverage").medianTimeToMergeHours}h median merge time`;
-  dims.teamMultiplier.headline = `${m("teamMultiplier").reviewsGiven} reviews across ${m("teamMultiplier").distinctAuthorsReviewed} authors, ${m("teamMultiplier").substantiveReviewRate} substantive`;
-  dims.qualitySignal.headline = `${m("qualitySignal").firstPassMergeRate} pass on first review, ${m("qualitySignal").testInclusionRate} include tests, ${m("qualitySignal").revertRate} reverts`;
-  dims.scopeReach.headline = `${m("scopeReach").codebaseZonesTouched} codebase zones, ${m("scopeReach").criticalPathRatio} critical-path work${m("scopeReach").crossStack ? ", full-stack" : ""}`;
-  dims.consistency.headline = `Active ${m("consistency").activeWeeks}/${m("consistency").totalWeeks} weeks, ${m("consistency").longestStreak}-week streak, ${m("consistency").recentActivityRatio} activity in last 30d`;
+  dims.teamMultiplier.headline = `${m("teamMultiplier", "Reviews Given")} reviews across ${m("teamMultiplier", "Authors Reviewed")} authors, ${m("teamMultiplier", "Substantive Review Rate")} substantive`;
 
-  // Rename metric keys
+  dims.qualitySignal.headline = `${m("qualitySignal", "First-Pass Merge Rate")} pass on first review, ${m("qualitySignal", "Test Inclusion Rate")} include tests`;
+
+  const critWork = m("scopeReach", "Critical Path Work");
+  const crossStack = m("scopeReach", "Full-Stack Contributor");
+  dims.scopeReach.headline = `${m("scopeReach", "Codebase Zones Touched")} codebase zones, ${critWork} critical-path work${crossStack === true || crossStack === "Yes" ? ", full-stack" : ""}`;
+
+  dims.consistency.headline = `Active ${m("consistency", "Active Weeks")}/${m("consistency", "Period Length (weeks)")} weeks, ${m("consistency", "Longest Streak (weeks)")}-week streak`;
+
+  // ── Rename metric keys (idempotent) ───────────────────────────────
   for (const dimKey of dimKeys) {
     const oldMetrics = dims[dimKey].metrics;
     const newMetrics: Record<string, unknown> = {};
     for (const [key, val] of Object.entries(oldMetrics)) {
-      const newKey = METRIC_RENAMES[key] || key;
-      if (key === "medianTimeToMergeHours" || key === "medianReviewTurnaroundHours") {
-        const hours = val as number;
-        if (hours < 1) newMetrics[newKey] = `${Math.round(hours * 60)}min`;
-        else if (hours < 24) newMetrics[newKey] = `${Math.round(hours * 10) / 10}h`;
-        else newMetrics[newKey] = `${Math.round((hours / 24) * 10) / 10}d`;
-      } else if (key === "avgPRDescriptionLength") {
+      const newKey = CANONICAL[key] || key;
+
+      // Format special values (only if not already formatted)
+      if (
+        (key === "medianTimeToMergeHours" ||
+          key === "medianReviewTurnaroundHours") &&
+        typeof val === "number"
+      ) {
+        if (val < 1) newMetrics[newKey] = `${Math.round(val * 60)}min`;
+        else if (val < 24)
+          newMetrics[newKey] = `${Math.round(val * 10) / 10}h`;
+        else newMetrics[newKey] = `${Math.round((val / 24) * 10) / 10}d`;
+      } else if (
+        key === "avgPRDescriptionLength" &&
+        typeof val === "number"
+      ) {
         newMetrics[newKey] = `${val} chars`;
-      } else if (key === "contributionEntropy") {
-        newMetrics[newKey] = `${Math.round((val as number) * 100)}%`;
-      } else if (key === "pageRankCentrality") {
-        const v = val as number;
-        if (v >= 0.08) newMetrics[newKey] = "High (top reviewer hub)";
-        else if (v >= 0.05) newMetrics[newKey] = "Moderate";
+      } else if (key === "contributionEntropy" && typeof val === "number") {
+        newMetrics[newKey] = `${Math.round(val * 100)}%`;
+      } else if (key === "pageRankCentrality" && typeof val === "number") {
+        if (val >= 0.08) newMetrics[newKey] = "High (top reviewer hub)";
+        else if (val >= 0.05) newMetrics[newKey] = "Moderate";
         else newMetrics[newKey] = "Standard";
       } else {
         newMetrics[newKey] = val;
@@ -101,49 +162,57 @@ for (const eng of data.topEngineers) {
     dims[dimKey].metrics = newMetrics;
   }
 
-  // Build differentiated summary
+  // ── Build differentiated summary ──────────────────────────────────
   const firstName = eng.name.split(" ")[0];
   const strengthLabel = DIMENSION_LABELS[bestRelative];
 
-  // Craft a narrative that explains WHY they're ranked here
+  const mergedPRs = m("shippingLeverage", "PRs Merged");
+  const mergeRate = m("shippingLeverage", "Merge Rate");
+
   const snippets: string[] = [];
 
-  // Shipping context
-  const mergedPRs = dims.shippingLeverage.metrics["PRs Merged"];
-  const mergeRate = dims.shippingLeverage.metrics["Merge Rate"];
-
-  // Pick the 2-3 most interesting facts
   if (dims.shippingLeverage.score >= 60) {
-    snippets.push(`high-volume shipper with ${mergedPRs} PRs merged (${mergeRate} rate)`);
+    snippets.push(
+      `high-volume shipper with ${mergedPRs} PRs merged (${mergeRate} rate)`
+    );
   } else {
     snippets.push(`merged ${mergedPRs} PRs at ${mergeRate} rate`);
   }
 
-  // What makes them stand out
   if (bestRelative === "teamMultiplier") {
     snippets.push(
-      `stands out as a team multiplier: ${dims.teamMultiplier.metrics["Reviews Given"]} reviews across ${dims.teamMultiplier.metrics["Authors Reviewed"]} teammates, with ${dims.teamMultiplier.metrics["Changes Requested Rate"]} constructive pushback`
+      `stands out as a team multiplier: ${m("teamMultiplier", "Reviews Given")} reviews across ${m("teamMultiplier", "Authors Reviewed")} teammates`
     );
   } else if (bestRelative === "qualitySignal") {
     snippets.push(
-      `exceptional code quality: ${dims.qualitySignal.metrics["First-Pass Merge Rate"]} merge on first review, ${dims.qualitySignal.metrics["Test Inclusion Rate"]} include tests`
+      `exceptional code quality: ${m("qualitySignal", "First-Pass Merge Rate")} merge on first review, ${m("qualitySignal", "Test Inclusion Rate")} include tests`
     );
   } else if (bestRelative === "scopeReach") {
     snippets.push(
-      `broad architectural impact across ${dims.scopeReach.metrics["Codebase Zones Touched"]} zones with ${dims.scopeReach.metrics["Critical Path Work"]} in critical infrastructure`
+      `broad architectural impact across ${m("scopeReach", "Codebase Zones Touched")} zones with ${m("scopeReach", "Critical Path Work")} in critical infrastructure`
     );
   } else if (bestRelative === "consistency") {
     snippets.push(
-      `remarkably consistent: active ${dims.consistency.metrics["Active Weeks"]}/${dims.consistency.metrics["Period Length (weeks)"]} weeks with a ${dims.consistency.metrics["Longest Streak (weeks)"]}-week streak`
+      `remarkably consistent: active ${m("consistency", "Active Weeks")}/${m("consistency", "Period Length (weeks)")} weeks with a ${m("consistency", "Longest Streak (weeks)")}-week streak`
     );
   } else if (bestRelative === "shippingLeverage") {
-    // Already covered above, add a review note
-    const reviews = dims.teamMultiplier.metrics["Reviews Given"];
-    snippets.push(`also contributed ${reviews} code reviews`);
+    snippets.push(
+      `also contributed ${m("teamMultiplier", "Reviews Given")} code reviews`
+    );
   }
 
   eng.summary = `${firstName} ${snippets.join(". ")}.`;
 }
 
 writeFileSync(dataPath, JSON.stringify(data, null, 2));
-console.log("Data enriched with differentiated summaries and headlines.");
+console.log("Enrichment complete (idempotent). Verifying...");
+
+// Verify no undefined in output
+const output = readFileSync(dataPath, "utf-8");
+const undefinedCount = (output.match(/undefined/g) || []).length;
+if (undefinedCount > 0) {
+  console.error(`ERROR: Found ${undefinedCount} instances of "undefined" in output!`);
+  process.exit(1);
+} else {
+  console.log("Verification passed: zero instances of 'undefined' in output.");
+}
